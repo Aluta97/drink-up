@@ -1,10 +1,8 @@
-var drinksPerPerson = require('../drinksPerPerson');
-var whoDrankMost = require('../whoDrankMost');
-var whoDrankLeast = require('../whoDrankLeast');
-var howManyDrinks = require('../howManyDrinks');
+var how_Many_Drinks = require('../how_Many_Drinks');
+var who_Drank_Least = require('../who_Drank_Least');
+var who_Drank_Most = require('../who_Drank_Most');
+var drinks_Person = require('../drinks_Person');
 var assert = require('assert');
-
-
 
 var Monday = [{
   "person": "Mdu",
@@ -95,61 +93,53 @@ var Friday = [{
 
 describe('drinkup test', function() {
   it('it should return the total number of coffee were drunk on monday', function() {
-    assert.equal(howManyDrinks(Monday, "coffee"), 6)
+    assert.equal(how_Many_Drinks(Monday, "coffee"), 6)
   })
-
   it('it should return the total number of tea were drunk tuesday', function() {
-    assert.equal(howManyDrinks(Tuesday, "tea"), 7)
+    assert.equal(how_Many_Drinks(Tuesday, "tea"), 7)
   })
-
   it('it should return the total number of tea were drunk tuesday', function() {
-    assert.equal(howManyDrinks(Wednesday, "water"), 17)
-  })
-
-  it('it should return the total number of coffees were drunk on thursday', function() {
-    assert.equal(howManyDrinks(Thursday, "coffee"), 6)
-  })
-
-  it('it should return the total number of teas were drunk on thursday', function() {
-    assert.equal(howManyDrinks(Thursday, "tea"), 7)
-  })
-
-  it('it should return the total number of waters were drunk on thursday', function() {
-    assert.equal(howManyDrinks(Thursday, "water"), 6)
+    assert.equal(how_Many_Drinks(Wednesday, "water"), 17)
   })
 
   it('it should return who drank the least coffee  on monday', function() {
-    assert.equal(whoDrankLeast(Monday, "coffee", 5), "Lesego")
+    assert.equal(who_Drank_Least(Monday, "coffee", 5), "Lesego")
   })
-
   it('it should return who drank the least water on wednesday', function() {
-    assert.equal(whoDrankLeast(Wednesday, "water", 9), "Brenda")
+    assert.equal(who_Drank_Least(Wednesday, "water", 9), "Brenda")
+  })
+  it('it should return who drunk the least coffee on thursday', function() {
+    assert.equal(who_Drank_Least(Thursday, "coffee", 5), "Lesego")
   })
 
-  it('it should return who drunk the least coffee on thursday', function() {
-    assert.equal(whoDrankLeast(Thursday, "coffee", 5), "Lesego")
+  it('it should return the total number of coffees were drunk on thursday', function() {
+    assert.equal(how_Many_Drinks(Thursday, "coffee"), 6)
+  })
+  it('it should return the total number of teas were drunk on thursday', function() {
+    assert.equal(how_Many_Drinks(Thursday, "tea"), 7)
+  })
+  it('it should return the total number of waters were drunk on thursday', function() {
+    assert.equal(how_Many_Drinks(Thursday, "water"), 6)
   })
 
   it('it should return who drunk the least water on thursday', function() {
-    assert.equal(whoDrankLeast(Thursday, "water", 3), 'Brenda')
+    assert.equal(who_Drank_Least(Thursday, "water", 3), 'Brenda')
   })
   it('it should return who drunk the most tea on tuesday', function() {
-    assert.equal(whoDrankMost(Tuesday, "tea", 0), 'Brenda')
+    assert.equal(who_Drank_Most(Tuesday, "tea", 0), 'Brenda')
   })
   it('it should return who drunk the most tea on thursday', function() {
-    assert.equal(whoDrankMost(Thursday, "tea", 0), 'Lesego')
+    assert.equal(who_Drank_Most(Thursday, "tea", 0), 'Lesego')
   })
 
   it('it should return the total number of coffees drunk on monday', function() {
-    assert.equal(drinksPerPerson(Monday, "coffee", "Lesego"), 0)
-
+    assert.equal(drinks_Person(Monday, "coffee", "Lesego"), 0)
   })
   it('it should return the total number of teas drunk on tuesday', function() {
-    assert.equal(drinksPerPerson(Tuesday, "tea", "Brenda"), 4)
-
+    assert.equal(drinks_Person(Tuesday, "tea", "Brenda"), 4)
   })
   it('it should return the total number of waters drunk on wednesday', function() {
-    assert.equal(drinksPerPerson(Wednesday, "water", "Mdu"), 9)
+    assert.equal(drinks_Person(Wednesday, "water", "Mdu"), 9)
   })
 
 })

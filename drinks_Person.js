@@ -1,12 +1,12 @@
 module.exports = function(day, drink, person){
 
-  var drinks = 1000;
+  var min = 1000;
   day.forEach(function(user){
     //console.log(user.person);
     if(user.person === person){
-      drinks = user[drink];
+      min = user[drink];
     }
   });
 //  console.log(drinks);
-  return drinks;
+  return min;
 }

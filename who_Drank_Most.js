@@ -7,10 +7,10 @@ module.exports = function(day,drink,min){
     if(person[drink] > max){
       max = person[drink];
   name = {
-             People : person.person
+             people : person.person
       }
     }
   });
 //  console.log(name.People);
-  return name.People;
+  return name.people;
 };
